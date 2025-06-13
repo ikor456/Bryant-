@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="rw">
+<!DOCTYPE html><html lang="rw">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +8,7 @@
     body {
       background-color: #111;
       color: white;
+      font-family: Arial, sans-serif;
     }
     .red-line {
       border-top: 4px solid red;
@@ -18,150 +18,165 @@
       background-color: #222;
       border: 2px solid red;
       border-radius: 10px;
-      padding: 20px;
-      height: 400px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      padding: 10px;
+      overflow: hidden;
       transition: transform 0.3s ease;
+      cursor: pointer;
     }
     .movie-card:hover {
       transform: scale(1.05);
     }
     .movie-title {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: bold;
       margin-top: 10px;
+      text-align: center;
     }
     .movie-info {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+      text-align: center;
+      color: #ccc;
     }
-    .dubbers-bar {
-      display: flex;
+    .movie-thumbnail {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .video-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
       justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      font-size: 1rem;
-      font-weight: bold;
-      margin-bottom: 20px;
-      color: #ff4d4d;
+      align-items: center;
+      z-index: 999;
+    }
+    .video-popup video {
+      width: 90%;
+      max-width: 700px;
+      border: 3px solid red;
+      border-radius: 10px;
+    }
+    .video-popup .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: red;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-
   <div class="container py-4">
     <h1 class="text-center">🎬 Brillant Movie Site</h1>
     <div class="red-line"></div>
-
-    <!-- Abasobanuzi -->
-    <div class="dubbers-bar">
-      <div>Dubber: Rocky</div>
-      <div>Dubber: Gaheza</div>
-      <div>Dubber: Kim Professeur</div>
+    <div class="row g-4 justify-content-center"><!-- Movie Card Template -->
+  <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('g20.mp4')">
+    <div class="movie-card">
+      <img src="G20.jpg" alt="G20" class="movie-thumbnail">
+      <div class="movie-title">G20</div>
+      <div class="movie-info">Action | 2023</div>
     </div>
-
-    <div class="row g-4 justify-content-center">
-      <!-- G20 -->
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="movie-card text-white">
-          <img src="G20.jpg" alt="G20" class="w-100" style="height: 200px; object-fit: cover;">
-          <div class="movie-title">G20</div>
-          <div class="movie-info">Action | 2023</div>
-          <a href="#" class="btn btn-danger btn-sm">Watch Trailer</a>
-        </div>
-      </div>
-
-      <!-- A Working Man -->
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="movie-card text-white">
-          <img src="workingman.png" alt="A Working Man" class="w-100" style="height: 200px; object-fit: cover;">
-          <div class="movie-title">A Working Man</div>
-          <div class="movie-info">Drama | 2022</div>
-          <a href="#" class="btn btn-danger btn-sm">Watch Trailer</a>
-        </div>
-      </div>
-
-      !-- Fountain of Youth -->
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="movie-card text-white">
-          <img src="fountain.jpg" alt="Fountain of Youth" class="w-100" style="height: 200px; object-fit: cover;">
-          <div class="movie-title">Fountain of Youth</div>
-          <div class="movie-info">Adventure | 2025</div>
-          <a href="#" class="btn btn-danger btn-sm">Watch Trailer</a>
-        </div>
-      </div>
-
-      <!-- Sikandar -->
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="movie-card text-white">
-          <img src="sikandar.jpg" alt="Sikandar" class="w-100" style="height: 200px; object-fit: cover;">
-          <div class="movie-title">Sikandar</div>
-          <div class="movie-info">Action | 2025</div>
-          <a href="#" class="btn btn-danger btn-sm">Watch Trailer</a>
-        </div>
-      </div>
-
-      <!-- Army of Thieves -->
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="movie-card text-white">
-          <img src="army.jpg" alt="Army of Thieves" class="w-100" style="height: 200px; object-fit: cover;">
-          <div class="movie-title">Army of Thieves</div>
-          <div class="movie-info">Heist | 2020</div>
-          <a href="#" class="btn btn-danger btn-sm">Watch Trailer</a>
-        </div>
-      </div>
-
-      <!-- Sinners -->
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="movie-card text-white">
-          <img src="sinners.jpg" alt="Sinners" class="w-100" style="height: 200px; object-fit: cover;">
-          <div class="movie-title">Sinners</div>
-          <div class="movie-info">Crime | 2025</div>
-          <a href="#" class="btn btn-danger btn-sm">Watch Trailer</a>
-        </div>
-      </div>
-
-      <!-- Purple Hearts -->
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="movie-card text-white">
-          <img src="purple.jpg" alt="Purple Hearts" class="w-100" style="height: 200px; object-fit: cover;">
-          <div class="movie-title">Purple Hearts</div>
-          <div class="movie-info">Romance | 2022</div>
-          <a href="#" class="btn btn-danger btn-sm">Watch Trailer</a>
-        </div>
-      </div>
-
-      <!-- Wakanda Forever -->
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="movie-card text-white">
-          <img src="wakanda.jpg" alt="Wakanda Forever" class="w-100" style="height: 200px; object-fit: cover;">
-          <div class="movie-title">Wakanda Forever</div>
-          <div class="movie-info">Superhero | 2022</div>
-          <a href="#" class="btn btn-danger btn-sm">Watch Trailer</a>
-        </div>
-      </div>
-    </div>
-    !-- Nightcrawler -->
-<div class="col-6 col-md-4 col-lg-3">
-  <div class="movie-card text-white">
-    <img src="nightcrawler.jpg" alt="Nightcrawler" class="w-100" style="height: 200px; object-fit: cover;">
-    <div class="movie-title">Nightcrawler</div>
-    <div class="movie-info">Thriller | 2014</div>
-    <a href="#" class="btn btn-danger btn-sm">Watch Trailer</a>
   </div>
+
+  <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('workingman.mp4')">
+    <div class="movie-card">
+      <img src="workingman.png" alt="A Working Man" class="movie-thumbnail">
+      <div class="movie-title">A Working Man</div>
+      <div class="movie-info">Drama | 2022</div>
+    </div>
+  </div>
+
+  <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('fountain.mp4')">
+    <div class="movie-card">
+      <img src="fountain.jpg" alt="Fountain of Youth" class="movie-thumbnail">
+      <div class="movie-title">Fountain of Youth</div>
+      <div class="movie-info">Adventure | 2025</div>
+    </div>
+  </div>
+
+  <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('sikandar.mp4')">
+    <div class="movie-card">
+      <img src="sikandar.jpg" alt="Sikandar" class="movie-thumbnail">
+      <div class="movie-title">Sikandar</div>
+      <div class="movie-info">Action | 2025</div>
+    </div>
+  </div>
+
+  <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('army.mp4')">
+    <div class="movie-card">
+      <img src="army.jpg" alt="Army of Thieves" class="movie-thumbnail">
+      <div class="movie-title">Army of Thieves</div>
+      <div class="movie-info">Heist | 2020</div>
+    </div>
+  </div>
+
+  <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('sinners.mp4')">
+    <div class="movie-card">
+      <img src="sinners.jpg" alt="Sinners" class="movie-thumbnail">
+      <div class="movie-title">Sinners</div>
+      <div class="movie-info">Crime | 2025</div>
+    </div>
+  </div>
+
+  <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('purple.mp4')">
+    <div class="movie-card">
+      <img src="purple.jpg" alt="Purple Hearts" class="movie-thumbnail">
+      <div class="movie-title">Purple Hearts</div>
+      <div class="movie-info">Romance | 2022</div>
+    </div>
+  </div>
+
+  <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('wakanda.mp4')">
+    <div class="movie-card">
+      <img src="wakanda.jpg" alt="Wakanda Forever" class="movie-thumbnail">
+      <div class="movie-title">Wakanda Forever</div>
+      <div class="movie-info">Superhero | 2022</div>
+    </div>
+  </div>
+
+  <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('nightcrawler.mp4')">
+    <div class="movie-card">
+      <img src="nightcrawler.jpg" alt="Nightcrawler" class="movie-thumbnail">
+      <div class="movie-title">Nightcrawler</div>
+      <div class="movie-info">Thriller | 2014</div>
+    </div>
+  </div>
+
+  <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('veer.mp4')">
+    <div class="movie-card">
+      <img src="veer.jpg" alt="Veer" class="movie-thumbnail">
+      <div class="movie-title">Veer</div>
+      <div class="movie-info">Historical | 2010</div>
+    </div>
+  </div>
+
 </div>
+<div class="red-line"></div>
+<footer class="text-center py-3">© 2025 Brillant</footer>
 
-<!-- Veer -->
-<div class="col-6 col-md-4 col-lg-3">
-  <div class="movie-card text-white">
-    <img src="veer.jpg" alt="Veer" class="w-100" style="height: 200px; object-fit: cover;">
-    <div class="movie-title">Veer</div>
-    <div class="movie-info">Historical | 2010</div>
-    <a href="#" class="btn
-    <div class="red-line"></div>
-    <footer class="text-center py-3">© 2025 Brillant</footer>
-  </div>
+  </div>  <!-- Video Popup -->  <div class="video-popup" id="videoPopup">
+    <span class="close-btn" onclick="closeVideo()">&times;</span>
+    <video id="popupVideo" controls></video>
+  </div>  <script>
+    function showVideo(videoSrc) {
+      const popup = document.getElementById('videoPopup');
+      const video = document.getElementById('popupVideo');
+      video.src = videoSrc;
+      popup.style.display = 'flex';
+    }
 
-</body>
+    function closeVideo() {
+      const popup = document.getElementById('videoPopup');
+      const video = document.getElementById('popupVideo');
+      video.pause();
+      video.src = '';
+      popup.style.display = 'none';
+    }
+  </script></body>
 </html>

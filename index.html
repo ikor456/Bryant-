@@ -5,14 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Brillant - Movie Website</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <style>
     body {
       background-color: #111;
       color: white;
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding-bottom: 70px; /* To make room for bottom nav */
     }
     .red-line {
       border-top: 4px solid red;
@@ -73,68 +70,181 @@
       color: red;
       cursor: pointer;
     }
-
-    /* Bottom Navigation */
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: #000;
-      border-top: 2px solid red;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 6px 0;
-      z-index: 1000;
-    }
-    .bottom-nav a {
-      color: #ccc;
-      text-align: center;
-      font-size: 12px;
-      text-decoration: none;
-    }
-    .bottom-nav a i {
-      font-size: 20px;
-      display: block;
-      margin-bottom: 2px;
-    }
-    .bottom-nav a:hover {
-      color: red;
-    }
   </style>
 </head>
 <body>
   <div class="container py-4">
-    <h1 class="text-center">🎬 Brillant Movie Site</h1>
+    <h1 id="home" class="text-center">🎬 Brillant Movie Site</h1>
     <div class="red-line"></div>
     <div class="row g-4 justify-content-center">
 
-      <!-- Ibice bya film: G20, A Working Man, Fountain... nk'uko warabishize -->
+      <!-- Film cards -->
+      <!-- FILM 1 -->
+      <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('g20.mp4')">
+        <div class="movie-card">
+          <img src="G20.jpg" alt="G20" class="movie-thumbnail">
+          <div class="movie-title">G20</div>
+          <div class="movie-info">Action | 2023</div>
+        </div>
+      </div>
 
-      <!-- Shira hano ibice bya film (nk’uko wabisize), biragumaho nk'uko biri -->
-      <!-- (...) -->
+      <!-- Add all other movies here just like before -->
+      <!-- A Working Man -->
+      <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('workingman.mp4')">
+        <div class="movie-card">
+          <img src="workingman.png" alt="A Working Man" class="movie-thumbnail">
+          <div class="movie-title">A Working Man</div>
+          <div class="movie-info">Drama | 2022</div>
+        </div>
+      </div>
+
+      <!-- Fountain of Youth -->
+      <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('fountain.mp4')">
+        <div class="movie-card">
+          <img src="fountain.jpg" alt="Fountain of Youth" class="movie-thumbnail">
+          <div class="movie-title">Fountain of Youth</div>
+          <div class="movie-info">Adventure | 2025</div>
+        </div>
+      </div>
+
+      <!-- Sikandar -->
+      <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('sikandar.mp4')">
+        <div class="movie-card">
+          <img src="sikandar.jpg" alt="Sikandar" class="movie-thumbnail">
+          <div class="movie-title">Sikandar</div>
+          <div class="movie-info">Action | 2025</div>
+        </div>
+      </div>
+
+      <!-- Army of Thieves -->
+      <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('army.mp4')">
+        <div class="movie-card">
+          <img src="army.jpg" alt="Army of Thieves" class="movie-thumbnail">
+          <div class="movie-title">Army of Thieves</div>
+          <div class="movie-info">Heist | 2020</div>
+        </div>
+      </div>
+
+      <!-- Sinners -->
+      <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('sinners.mp4')">
+        <div class="movie-card">
+          <img src="sinners.jpg" alt="Sinners" class="movie-thumbnail">
+          <div class="movie-title">Sinners</div>
+          <div class="movie-info">Crime | 2025</div>
+        </div>
+      </div>
+
+      <!-- Purple Hearts -->
+      <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('purple.mp4')">
+        <div class="movie-card">
+          <img src="purple.jpg" alt="Purple Hearts" class="movie-thumbnail">
+          <div class="movie-title">Purple Hearts</div>
+          <div class="movie-info">Romance | 2022</div>
+        </div>
+      </div>
+
+      <!-- Wakanda Forever -->
+      <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('wakanda.mp4')">
+        <div class="movie-card">
+          <img src="wakanda.jpg" alt="Wakanda Forever" class="movie-thumbnail">
+          <div class="movie-title">Wakanda Forever</div>
+          <div class="movie-info">Superhero | 2022</div>
+        </div>
+      </div>
+
+      <!-- Nightcrawler -->
+      <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('nightcrawler.mp4')">
+        <div class="movie-card">
+          <img src="nightcrawler.jpg" alt="Nightcrawler" class="movie-thumbnail">
+          <div class="movie-title">Nightcrawler</div>
+          <div class="movie-info">Thriller | 2014</div>
+        </div>
+      </div>
+
+      <!-- Veer -->
+      <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('veer.mp4')">
+        <div class="movie-card">
+          <img src="veer.jpg" alt="Veer" class="movie-thumbnail">
+          <div class="movie-title">Veer</div>
+          <div class="movie-info">Historical | 2010</div>
+        </div>
+      </div>
+
+      <!-- Straw -->
+      <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('straw.mp4')">
+        <div class="movie-card">
+          <img src="straw.jpg" alt="Straw" class="movie-thumbnail">
+          <div class="movie-title">Straw</div>
+          <div class="movie-info">Drama | 2021</div>
+        </div>
+      </div>
+
+      <!-- Family Plan -->
+      <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('familyplan.mp4')">
+        <div class="movie-card">
+          <img src="familyplan.jpg" alt="Family Plan" class="movie-thumbnail">
+          <div class="movie-title">Family Plan</div>
+          <div class="movie-info">Comedy | 2024</div>
+        </div>
+      </div>
+
+      <!-- Exterritorial -->
+      <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('exterritorial.mp4')">
+        <div class="movie-card">
+          <img src="exterritorial.jpg" alt="Exterritorial" class="movie-thumbnail">
+          <div class="movie-title">Exterritorial</div>
+          <div class="movie-info">Sci-Fi | 2023</div>
+        </div>
+      </div>
+
+      <!-- Trouble -->
+      <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('trouble.mp4')">
+        <div class="movie-card">
+          <img src="trouble.jpg" alt="Trouble" class="movie-thumbnail">
+          <div class="movie-title">Trouble</div>
+          <div class="movie-info">Action | 2024</div>
+        </div>
+      </div>
+
+      <!-- Jaat -->
+      <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('jaat.mp4')">
+        <div class="movie-card">
+          <img src="jaat.jpg" alt="Jaat" class="movie-thumbnail">
+          <div class="movie-title">Jaat</div>
+          <div class="movie-info">Drama | 2023</div>
+        </div>
+      </div>
+
+      <!-- Martin -->
+      <div class="col-6 col-md-4 col-lg-3" onclick="showVideo('martin.mp4')">
+        <div class="movie-card">
+          <img src="martin.jpg" alt="Martin" class="movie-thumbnail">
+          <div class="movie-title">Martin</div>
+          <div class="movie-info">Thriller | 2024</div>
+        </div>
+      </div>
 
     </div>
+
     <div class="red-line"></div>
     <footer class="text-center py-3">© 2025 Brillant</footer>
   </div>
+
+  <!-- Bottom Navbar -->
+  <nav class="navbar fixed-bottom navbar-dark bg-dark border-top border-danger">
+    <div class="container justify-content-around">
+      <a class="nav-link text-white" href="#home">🏠 Home</a>
+      <a class="nav-link text-white" href="#genres">🎭 Genres</a>
+      <a class="nav-link text-white" href="#trailers">🎬 Trailers</a>
+      <a class="nav-link text-white" href="#about">ℹ️ About</a>
+    </div>
+  </nav>
 
   <!-- Video Popup -->
   <div class="video-popup" id="videoPopup">
     <span class="close-btn" onclick="closeVideo()">&times;</span>
     <video id="popupVideo" controls></video>
   </div>
-
-  <!-- Bottom Nav Bar -->
-  <nav class="bottom-nav">
-    <a href="#"><i class="bi bi-house-door-fill"></i><br>Home</a>
-    <a href="#"><i class="bi bi-film"></i><br>Movies</a>
-    <a href="#"><i class="bi bi-collection-play"></i><br>Shows</a>
-    <a href="#"><i class="bi bi-people-fill"></i><br>Fam</a>
-    <a href="#"><i class="bi bi-whatsapp"></i><br>Help</a>
-    <a href="#"><i class="bi bi-list"></i><br>Menu</a>
-  </nav>
 
   <script>
     function showVideo(videoSrc) {
@@ -143,7 +253,6 @@
       video.src = videoSrc;
       popup.style.display = 'flex';
     }
-
     function closeVideo() {
       const popup = document.getElementById('videoPopup');
       const video = document.getElementById('popupVideo');
